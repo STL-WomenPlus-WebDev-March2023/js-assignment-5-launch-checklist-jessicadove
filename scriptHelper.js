@@ -41,11 +41,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
     //check that fuelLevel and cargoLevel are numbers 
     else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
-        alert("Please enter a valid number for fuel level and cargo mass.")
+        alert("Please enter a valid number for fuel level and cargo mass.");
     }
     //and pilot and co-pilot are strings
     else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
-        alert("Please enter only alpha characters for pilot and copilot names.")
+        alert("Please enter only alpha characters for pilot and copilot names.");
     }
     //update pilot/copilot status
     else {
@@ -83,16 +83,17 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 
 async function myFetch() {
-    
-    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+
+    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
         if (response.status >= 400) {
-            throw new Error("Bad response");
+            throw new Error("Bad request");
         } else {
             return response.json();
         }
     });
     return planetsReturned;
 }
+ 
 
 function pickPlanet(planets) {
     let index = Math.floor((Math.random()*10)*planets.length);
