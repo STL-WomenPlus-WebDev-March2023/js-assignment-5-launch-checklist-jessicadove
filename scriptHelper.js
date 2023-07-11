@@ -4,7 +4,7 @@ require('isomorphic-fetch');
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    
    let missionTarget = document.getElementById("missionTarget");
-   missionTarget.innerHTML +=`
+   missionTarget.innerHTML =`
                 <h2>Mission Destination</h2>
                 <ol>
                     <li>Name: ${name}</li>
@@ -34,18 +34,19 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let cargoStatus = document.getElementById("cargoStatus");
     let faultyItems = document.getElementById("faultyItems");
     let launchStatus = document.getElementById("launchStatus");
-
+    //faultyItems.style.visibility = "hidden";
+    
     //check all fields are filled
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
-        alert("All fields are required!");
+        window.alert("All fields are required!");
     }
     //check that fuelLevel and cargoLevel are numbers 
     else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
-        alert("Please enter a valid number for fuel level and cargo mass.");
+        window.alert("Please enter a valid number for fuel level and cargo mass.");
     }
     //and pilot and co-pilot are strings
     else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
-        alert("Please enter only alpha characters for pilot and copilot names.");
+        window.alert("Please enter only alpha characters for pilot and copilot names.");
     }
     //update pilot/copilot status
     else {
