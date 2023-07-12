@@ -34,21 +34,20 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let cargoStatus = document.getElementById("cargoStatus");
     let faultyItems = document.getElementById("faultyItems");
     let launchStatus = document.getElementById("launchStatus");
-    //faultyItems.style.visibility = "hidden";
     
-    //check all fields are filled
+    //check that all fields are filled
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
-        alert("All fields are required!");
+        window.document.alert("All fields are required!");
     }
     //check that fuelLevel and cargoLevel are numbers 
     else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
-        alert("Please enter a valid number for fuel level and cargo mass.");
+        window.document.alert("Please enter a valid number for fuel level and cargo mass.");
     }
-    //and pilot and co-pilot are strings
+    //check that pilot and co-pilot are strings
     else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
-        alert("Please enter only alpha characters for pilot and copilot names.");
+        window.document.alert("Please enter only alpha characters for pilot and copilot names.");
     }
-    //update pilot/copilot status
+    //update pilot/copilot ready status
     else {
         faultyItems.style.visibility = "visible";
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
@@ -87,7 +86,7 @@ async function myFetch() {
 
     let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
         if (response.status >= 400) {
-            throw new Error("Bad request");
+            throw new Error("Bad response");
         } else {
             return response.json();
         }
