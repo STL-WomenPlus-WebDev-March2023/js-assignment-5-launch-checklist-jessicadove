@@ -37,15 +37,15 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     
     //check that all fields are filled
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
-        window.document.alert("All fields are required!");
+        alert("All fields are required!");
     }
     //check that fuelLevel and cargoLevel are numbers 
     else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
-        window.document.alert("Please enter a valid number for fuel level and cargo mass.");
+        alert("Please enter a valid number for fuel level and cargo mass.");
     }
     //check that pilot and co-pilot are strings
     else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
-        window.document.alert("Please enter only alpha characters for pilot and copilot names.");
+        alert("Please enter only alpha characters for pilot and copilot names.");
     }
     //update pilot/copilot ready status
     else {
